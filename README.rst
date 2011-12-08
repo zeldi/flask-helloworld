@@ -10,7 +10,8 @@ Prerequisites
 * Install the `heroku` command-line client (Appendix A)
 * Installing git and Setting up an SSH Key (Appendix B)
 * Ensure your Python environment is setup
-  * [Getting Setup with Python](http://www.craigkerstiens.com/2011/10/27/gettingsetupwithpython/)
+
+  * `Getting Setup with Python <http://www.craigkerstiens.com/2011/10/27/gettingsetupwithpython/>`_
   * [Installing Python Packages](http://www.craigkerstiens.com/2011/11/01/installingpythonpackages/)
 
 
