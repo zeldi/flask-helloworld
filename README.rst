@@ -12,7 +12,7 @@ Prerequisites
 * Ensure your Python environment is setup
 
   * `Getting Setup with Python <http://www.craigkerstiens.com/2011/10/27/gettingsetupwithpython/>`_
-  * [Installing Python Packages](http://www.craigkerstiens.com/2011/11/01/installingpythonpackages/)
+  * `Installing Python Packages <http://www.craigkerstiens.com/2011/11/01/installingpythonpackages/>`_
 
 
 Step 1: Create a Web App
@@ -47,7 +47,7 @@ Step 2: Test the App Locally
 	python app.py
 	
 
-2. You should be able to navigate in your browser to ['http://localhost:5000'](http://localhost:5000/) to view your hello world application. You'll notice for Flask the one unique portion is to attempt to read the port variable if it exists, this is to enable Heroku to know which port to listen to. 
+2. You should be able to navigate in your browser to `http://localhost:5000' <http://localhost:5000/>`_ to view your hello world application. You'll notice for Flask the one unique portion is to attempt to read the port variable if it exists, this is to enable Heroku to know which port to listen to. 
 
 3. Press `CTRL-C` to stop the process.
 
