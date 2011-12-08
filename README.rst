@@ -18,23 +18,23 @@ Step 1: Create a Web App
 
 1. Create and load your virtualenv::
 
-virtualenv --no-site-packages venv 
-source venv/bin/activate
+	virtualenv --no-site-packages venv 
+	source venv/bin/activate
 
 
 2. Create your application in app.py::
 
-import os
-from flask import Flask
-app = Flask(__name__)
+	import os
+	from flask import Flask
+	app = Flask(__name__)
 
-@app.route("/")
-def hello():
-	return "Hello from Python!"
+	@app.route("/")
+	def hello():
+		return "Hello from Python!"
 
-if __name__ == "__main__":
-	port = int(os.environ.get("PORT", 5000))
-	app.run(host='0.0.0.0', port=port)
+	if __name__ == "__main__":
+		port = int(os.environ.get("PORT", 5000))
+		app.run(host='0.0.0.0', port=port)
 
 
 Step 2: Test the App Locally
@@ -42,7 +42,7 @@ Step 2: Test the App Locally
 	
 1. Run your application locally::
 
-python app.py
+	python app.py
 	
 
 2. You should be able to navigate in your browser to ['http://localhost:5000'](http://localhost:5000/) to view your hello world application. You'll notice for Flask the one unique portion is to attempt to read the port variable if it exists, this is to enable Heroku to know which port to listen to. 
@@ -56,7 +56,7 @@ Step 3: Deploy the Web App to Heroku
 
 1. In the project directory, create a new file named Procfile containing::
 
-web: python app.py
+	web: python app.py
 
 
 Note: The file names, directories, and code are case sensitive. The Procfile file name must begin with an uppercase "P" character.
@@ -67,22 +67,21 @@ Caution: Some text editors on Windows, such as Notepad, automatically append a .
 
 2. Initialize a local git repository, add the files to it, and commit them::
 
-git init
-git add .
-git commit -m "initial commit for helloheroku"
+	git init
+	git add .
+	git commit -m "initial commit for helloheroku"
 
 Note: On Windows, you can ignore the following message when running the “git add .” command::
 
-warning : LF will be replaced by CRLF in .gitignore
-
+	warning : LF will be replaced by CRLF in .gitignore
 
 The commit operation has output similar to the following::
 
-[master (root-commit) b914eee] initial commit
-7 files changed, 165 insertions(+), 0 deletions(-)
-create mode 100644 .gitignore
-create mode 100644 Procfile
-create mode 100644 app.py
+	[master (root-commit) b914eee] initial commit
+	7 files changed, 165 insertions(+), 0 deletions(-)
+	create mode 100644 .gitignore
+	create mode 100644 Procfile
+	create mode 100644 app.py
 
 
 3. Create a new app provisioning stack on Heroku by using the `heroku` command-line client:
