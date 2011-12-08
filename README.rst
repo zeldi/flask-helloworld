@@ -86,54 +86,54 @@ The commit operation has output similar to the following::
 
 3. Create a new app provisioning stack on Heroku by using the `heroku` command-line client:
 
-        heroku create --stack cedar
+    heroku create --stack cedar
 
-    Note: You must use the "cedar" stack when creating this new app because it’s the only Heroku stack that supports Python.
+Note: You must use the "cedar" stack when creating this new app because it’s the only Heroku stack that supports Python.
 
-    The output looks similar to the following:
+The output looks similar to the following:
 
-        Creating empty-winter-343... done, stack is cedar
-        http://empty-winter-343.herokuapp.com/ | git@heroku.com:empty-winter-343.git
-        Git remote heroku added
+    Creating empty-winter-343... done, stack is cedar
+    http://empty-winter-343.herokuapp.com/ | git@heroku.com:empty-winter-343.git
+    Git remote heroku added
 
-    Note: `empty-winter-343` is a randomly generated temporary name for the app. You can rename the app with any unique and valid name using the `heroku apps:rename` command.
+Note: `empty-winter-343` is a randomly generated temporary name for the app. You can rename the app with any unique and valid name using the `heroku apps:rename` command.
 
     The create command outputs the web URL and git URL for this app. Since you had already created a git repository for this app, the heroku client automatically added the heroku remote repository information to the git configuration.
 
 4. Deploy the app to Heroku:
 
-        git push heroku master
+	git push heroku master
 
-    This command instructs `git` to push the app to the master branch on the heroku remote repository. This automatically triggers a Maven build on Heroku. When the build finishes, the output ends with something like the following:
+This command instructs `git` to push the app to the master branch on the heroku remote repository. This automatically triggers a Maven build on Heroku. When the build finishes, the output ends with something like the following:
 
-        ----->Discovering process types
-        Procfile declares types -> web
-        -----> Compiled slug size is 17.0MB
-        -----> Launching... done, v6
-        http://empty-winter-343.herokuapp.com deployed to Heroku
-        To git@heroku.com:empty-winter-343.git
-        + 3bcf805...a72152c master -> master (forced update)
+	----->Discovering process types
+    Procfile declares types -> web
+    -----> Compiled slug size is 17.0MB
+    -----> Launching... done, v6
+    http://empty-winter-343.herokuapp.com deployed to Heroku
+    To git@heroku.com:empty-winter-343.git
+    + 3bcf805...a72152c master -> master (forced update)
 
-5. Verify that the output contains the message:
+5. Verify that the output contains the message::
 
-        Procfile declares types -> web
+	Procfile declares types -> web
 
-    If it doesn't, confirm that the `Procfile` is named correctly with no file extension and that it contains:
+If it doesn't, confirm that the `Procfile` is named correctly with no file extension and that it contains::
 
-        web: sh target/bin/webapp
+	web: sh target/bin/webapp
 
-    If you fix `Procfile`, deploy the changes to Heroku:
+If you fix `Procfile`, deploy the changes to Heroku::
 
-        git add Procfile
-        git commit -m "fixed Procfile"
-        git push heroku master
-        heroku scale web=1
+	git add Procfile
+    git commit -m "fixed Procfile"
+    git push heroku master
+    heroku scale web=1
 
-6. Open the app in your browser using the generated app URL or by running:
+6. Open the app in your browser using the generated app URL or by running::
 
-        heroku open
+	heroku open
 
-    You should see `hello, world` on the web page.
+You should see `hello, world` on the web page.
 
 
 Step 4: Scale the App on Heroku
@@ -143,30 +143,30 @@ By default, the app runs on one dyno. To add more dynos, use the `heroku scale` 
 
 1. Scale the app to two dynos:
 
-        heroku scale web=2
+    heroku scale web=2
 
 2. See a list of your processes:
 
-        heroku ps
+    heroku ps
 
-    Tip: This command is very useful as a troubleshooting tool. For example, if your web app is not accessible, use `heroku ps` to ensure that a web process is running. If it’s not running, use `heroku scale web=1` to start the web app and use the heroku logs command to determine why there was a problem.
+Tip: This command is very useful as a troubleshooting tool. For example, if your web app is not accessible, use `heroku ps` to ensure that a web process is running. If it’s not running, use `heroku scale web=1` to start the web app and use the heroku logs command to determine why there was a problem.
 
 3. Scale back to one web dyno:
 
-        heroku scale web=1
+    heroku scale web=1
 
 Step 5: View App Logs on Heroku
 -------------------------------
 
 You can see everything that your app outputs to the console (STDOUT and STDERR) by running the heroku logs command.
 
-1. To see the logs, run:
+1. To see the logs, run::
 
-        heroku logs
+    heroku logs
 
-2. To see log messages as they happen, use the "tail" mode:
+2. To see log messages as they happen, use the "tail" mode::
 
-        heroku logs -t
+    heroku logs -t
 
 3. Press `CTRL-C` to stop seeing a tail of the logs.
 
@@ -179,27 +179,27 @@ You can list the history of releases, and use rollbacks to revert to prior relea
 
 1. To use the releases feature, install the `releases:basic` add-on.
 
-        heroku addons:add releases:basic
+    heroku addons:add releases:basic
 
-    Note: If the output indicates that your app already has the add-on, you can ignore the message.
+Note: If the output indicates that your app already has the add-on, you can ignore the message.
 
 2. To try it out, change an environment variable for your app on Heroku:
 
-        heroku config:add MYVAR=42
+    heroku config:add MYVAR=42
 
 3. Now review your list of releases on Heroku:
 
-        heroku releases
+    heroku releases
 
-    You'll see a list of recent releases, including version number and the date of the release.
+You'll see a list of recent releases, including version number and the date of the release.
 
 4. Roll back to the release before the MYVAR environment variable was set:
 
-        heroku rollback
+    heroku rollback
 
 5. Verify that the MYVAR environment variable is no longer set:
 
-        heroku config
+    heroku config
 
 #### Summary
 
