@@ -4,7 +4,7 @@ Hello World with Flask
 In this tutorial, you will create a web app and deploy it to Heroku. You will use a Flask create the app. You'll first run the app locally, and then deploy it to Heroku using git.
 
 Prerequisites
-~~~~~~~~~~~~~
+-------------
 
 * Create an account on [heroku.com](https://api.heroku.com/signup)
 * Install the `heroku` command-line client (Appendix A)
@@ -202,7 +202,8 @@ You'll see a list of recent releases, including version number and the date of t
 
     heroku config
 
-#### Summary
+Summary
+-------
 
 In this tutorial, you created a web app and deployed it to Heroku. You learned how to push apps to Heroku using `git` and how the `Procfile` declares what commands are started when dynos are run. You also learned how to list and scale the number of dynos, view logs, and roll back releases.
 
