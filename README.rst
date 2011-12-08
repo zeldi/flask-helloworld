@@ -3,7 +3,8 @@ Hello World with Flask
 
 In this tutorial, you will create a web app and deploy it to Heroku. You will use a Flask create the app. You'll first run the app locally, and then deploy it to Heroku using git.
 
-#### Prerequisites
+Prerequisites
+~~~~~~~~~~~~~
 
 * Create an account on [heroku.com](https://api.heroku.com/signup)
 * Install the `heroku` command-line client (Appendix A)
@@ -141,17 +142,17 @@ Step 4: Scale the App on Heroku
 
 By default, the app runs on one dyno. To add more dynos, use the `heroku scale` command.
 
-1. Scale the app to two dynos:
+1. Scale the app to two dynos::
 
     heroku scale web=2
 
-2. See a list of your processes:
+2. See a list of your processes::
 
     heroku ps
 
 Tip: This command is very useful as a troubleshooting tool. For example, if your web app is not accessible, use `heroku ps` to ensure that a web process is running. If it’s not running, use `heroku scale web=1` to start the web app and use the heroku logs command to determine why there was a problem.
 
-3. Scale back to one web dyno:
+3. Scale back to one web dyno::
 
     heroku scale web=1
 
@@ -183,21 +184,21 @@ You can list the history of releases, and use rollbacks to revert to prior relea
 
 Note: If the output indicates that your app already has the add-on, you can ignore the message.
 
-2. To try it out, change an environment variable for your app on Heroku:
+2. To try it out, change an environment variable for your app on Heroku::
 
     heroku config:add MYVAR=42
 
-3. Now review your list of releases on Heroku:
+3. Now review your list of releases on Heroku::
 
     heroku releases
 
 You'll see a list of recent releases, including version number and the date of the release.
 
-4. Roll back to the release before the MYVAR environment variable was set:
+4. Roll back to the release before the MYVAR environment variable was set::
 
     heroku rollback
 
-5. Verify that the MYVAR environment variable is no longer set:
+5. Verify that the MYVAR environment variable is no longer set::
 
     heroku config
 
